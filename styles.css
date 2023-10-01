@@ -1,0 +1,66 @@
+
+.title{
+    color: rgb(99, 4, 20);
+    text-align: center;
+    padding: 10px;
+    }
+body{
+    background-color: rgb(126, 22, 22);
+    background-image: url('/images/bg.jpg');
+    display: grid; 
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); 
+    min-height: auto;
+    margin: auto;
+} 
+.header{
+    text-align: center;
+    margin: auto;
+    padding: 1%;
+}
+.underlined-text {
+    text-decoration: underline;
+}
+.form{
+    padding: 10px 150px;
+}
+.container1 {
+    background-color: #950006;
+    max-width: 1200px; /* กำหนดความกว้างสูงสุดของ container */
+    margin-left: auto; /* จัดชิดขอบซ้าย */
+    margin-right: auto; /* จัดชิดขอบขวา */
+    padding: 20px; /* เพิ่มระยะขอบใน container */
+    box-sizing: border-box; /* กำหนดให้ขอบของ container นับเข้าไปในความกว้างทั้งหมด */
+  }
+ .container2 {
+    background-color: #950006;
+    max-width: 1200px; /* กำหนดความกว้างสูงสุดของ container */
+    margin-left: auto; /* จัดชิดขอบซ้าย */
+    margin-right: auto; /* จัดชิดขอบขวา */
+    padding: 20px; /* เพิ่มระยะขอบใน container */
+    box-sizing: border-box; /* กำหนดให้ขอบของ container นับเข้าไปในความกว้างทั้งหมด */
+  }
+.button{
+    text-align: center;
+}
+.input-style {
+    color: rgb(0, 0, 0);
+    background-color: #fefefe;
+    font-size: 12px;
+    padding: 4px;
+    border: none;
+    border-radius: 6px;
+  }
+.button-style {
+    background-color: blue;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+  }
+.table1{
+    width: 55rem;
+}
+img{
+    width: 14rem;
+}
