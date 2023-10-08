@@ -15,7 +15,9 @@
 </head>
 <body >
     <?php
+
         $dateApply = $_POST["dateApply"];
+        $dateApply2 = $_POST["dateApply"];
         $timestamp = strtotime($dateApply);
         $dateApply = date("d F Y", $timestamp);
         
@@ -42,6 +44,7 @@
         $nameEng = $_POST["nameEng"];
         $sex = $_POST["sex"];
         $dateofbirth = $_POST["dateofbirth"];
+        $dateofbirth2 = $_POST["dateofbirth"];
         $timestamp = strtotime($dateofbirth);
         $dateofbirth = date("d F Y", $timestamp);
         $dateofbirth = str_replace(array_keys($thaiMonths), array_values($thaiMonths), $dateofbirth);
@@ -50,10 +53,12 @@
         $idcard = $_POST["idcard"];
         $registrarName = $_POST["registrarName"];
         $startdate = $_POST["startdate"];
+        $startdate2 = $_POST["startdate"];
         $timestamp = strtotime($startdate);
         $startdate = date("d F Y", $timestamp);
         $startdate = str_replace(array_keys($thaiMonths), array_values($thaiMonths), $startdate);
         $enddate = $_POST["enddate"];
+        $enddate2 = $_POST["enddate"];
         $timestamp = strtotime($enddate);
         $enddate = date("d F Y", $timestamp);
         $enddate = str_replace(array_keys($thaiMonths), array_values($thaiMonths), $enddate);
@@ -73,24 +78,19 @@
         $addrcompany = $_POST["addrcompany"];
         $postalCodeCompany = $_POST["postalCodeCompany"];
         $telcompany = $_POST["telcompany"];
-        //ภูมิลำเนาบรรพบุรุษ
-        $addressDomicile = $_POST["addressDomicile"];
-        $villageDomicile = $_POST["villageDomicile"];
-        $subdistrictDomicile = $_POST["subdistrictDomicile"];
-        $districtDomicile = $_POST["districtDomicile"];
-        $provinceDomicile = $_POST["provinceDomicile"];
-        $postalCodeDomicile = $_POST["postalCodeDomicile"];
-        $fatherName = $_POST["fatherName"];
-        $motherName = $_POST["motherName"];
-        $pay = $_POST["pay"];
+        //บัญชีและรหัสผ่าน
+        
+        $userName = $_POST["userName"];
+        $passWord = $_POST["passWord"];
         //ส่วนสุดท้าย 
-        $applyName = $_POST["applyName"];
-        $certifierNumber = $_POST["certifierNumber"];
-        $certifierName = $_POST["certifierName"];
+        $pay = $_POST["pay"];
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $targetDir = "images/"; // ตำแหน่งที่จะบันทึกไฟล์
-            $targetFile = $targetDir . basename($_FILES["imageUpload"]["name"]); // เตรียมตำแหน่งของไฟล์ที่จะบันทึก
+
+            $newFileName = $userName."." . pathinfo($_FILES["imageUpload"]["name"], PATHINFO_EXTENSION);
+            $targetFile = $targetDir . $newFileName; // เตรียมตำแหน่งของไฟล์ที่จะบันทึก
+            //$targetFile = $targetDir . basename($_FILES["imageUpload"]["name"]); // เตรียมตำแหน่งของไฟล์ที่จะบันทึก
             // ตรวจสอบว่าไฟล์รูปถูกอัพโหลดหรือไม่
             $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
             if (isset($_POST["submit"])) {
@@ -240,43 +240,39 @@
             </div>
             <br>
             <HR>
+            <br>
             <div style="font-size: 20px; color: #fffdfd;">
-                <label for="domicile" style="font-size: 20px; color: #fffdfd;">ภูมิลำเนาบรรพบุรุษ</label><br><br>
-
-                <label for="addressDomicile">บ้านเลขที่  &nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <label for="addressDomicile"style="color: aliceblue;"class="underlined-text"><?php echo $addressDomicile;?></label>
-             
-                <label for="villageDomicile">&nbsp;&nbsp;หมู่ &nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <label for="villageDomicile"style="color: aliceblue;"class="underlined-text"><?php echo $villageDomicile;?></label>
-             
-                <label for="subdistrictDomicile">&nbsp;&nbsp;ตำบล &nbsp;&nbsp;</label>
-                <label for="subdistrictDomicile"style="color: aliceblue;"class="underlined-text"><?php echo $subdistrictDomicile;?><br><br></label>
-             
-                <label for="districtDomicile">อำเภอ &nbsp;&nbsp;</label>
-                <label for="districtDomicile"style="color: aliceblue;"class="underlined-text"><?php echo $districtDomicile;?></label>
-             
-                <label for="provinceDomicile">&nbsp;&nbsp;จังหวัด &nbsp;&nbsp;</label>
-                <label for="provinceDomicile"style="color: aliceblue;"class="underlined-text"><?php echo $provinceDomicile;?></label>
-             
-                <label for="postalCodeDomicile">&nbsp;&nbsp;รหัสไปรษณี &nbsp;&nbsp;</label>
-                <label for="postalCodeDomicile"style="color: aliceblue;"class="underlined-text"><?php echo $postalCodeDomicile;?><br><br></label>
-             
-                <label for="fatherName">ชื่อบิดา &nbsp;&nbsp;</label>
-                <label for="fatherName"style="color: aliceblue;"class="underlined-text"><?php echo $fatherName;?></label>
-             
-                <label for="motherName">&nbsp;&nbsp;ชื่อมารดา &nbsp;&nbsp;</label>
-                <label for="motherName"style="color: aliceblue;"class="underlined-text"><?php echo $motherName;?><br><br></label>
-             
+                <label for="domicile" style="font-size: 20px; color: #fffdfd;">บัญชีและรหัสผ่าน</label><br>
+                <TABLE align="left"  BORDER="0" style="font-size: 15px; color: #fffdfd;">
+                    <TR >
+                        <TD align="left"WIDTH="300">
+                            <div style="font-size: 15px; color: #fffdfd;">
+                                <label for="userName"style="font-size: 20px; color: #fffdfd;">ชื่อบัญชี&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <label for="userName"style="font-size: 20px; color: #fffdfd;" class="underlined-text"><?php echo $userName;?>&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            </div>
+                        </TD>
+                        <TD align="left"WIDTH="300">
+                            <div style="font-size: 15px; color: #fffdfd;">
+                                <label for="passWord"style="font-size: 20px; color: #fffdfd;">รหัสผ่าน  &nbsp;&nbsp;&nbsp;</label>
+                                <label for="passWord"style="font-size: 20px; color: #fffdfd;" class="underlined-text"><?php echo $passWord;?>&nbsp;&nbsp;&nbsp;</label>
+                            </div>
+                        </TD>
+                        
+                    </TR> 
+                </TABLE>
             </div>
+            <br><br><br>
             <div style="font-size: 20px; color: #fffdfd;">
                 <label >ขอสมัครเป็นสมาชิกสมาคมประเภท และชำระค่าบำรุงสมาคม&nbsp;&nbsp;&nbsp;</label><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="pay"style="color: aliceblue;">
                 <?php 
                     if($pay === "600"){
+                        $membertype = "สมาชิกสมทบ";
                         echo '- สมาชิกสมทบลงทะเบียนครั้งแรกและบำรุงรักษาสมาคมรวม ' ;
                         echo $pay;
                         echo ' บาท' ;
                     }else{
+                        $membertype = "สมาชิกสามัญ";
                         echo '- สมาชิกสามัญลงทะเบียนครั้งแรกและบำรุงรักษาสมาคมรวม ';
                         echo $pay ;
                         echo ' บาท' ;
@@ -293,33 +289,30 @@
                     และปฏิบัติตามระเบียบข้อบังคับของสมาคมฯ และกฎหมายของบ้านเมืองอย่างเคร่งครัด
                     </label></div><br>
             </div>
-            <TABLE align="center" WIDTH="950" BORDER="0" style="font-size: 15px; color: #fffdfd;">
-                <TR align="center" >
-                    <TD ROWSPAN="3" WIDTH="50">
-                        <div>
-                        </div>
-                    </TD> 
-                    <TD align="left">
-                        <div style="font-size: 20px; color: #fffdfd;">
-                            <label for="applyName">ผู้สมัครชื่อ  &nbsp;&nbsp;&nbsp;&nbsp;</label>
-                            <label for="motherName"style="color: aliceblue;"class="underlined-text"><?php echo $_POST["applyName"];?></label>
-                        </div>
-                    </TD>
-                </TR> 
-                <TR align="left" BORDER="0"> 
-                    <TD>
-                        <div style="font-size: 20px; color: #fffdfd;">
-                            <label for="certifierNumber">ผู้รับรองสมาชิกสามัญเลขที่&nbsp;</label>
-                            <label for="motherName"style="color: aliceblue;"class="underlined-text"><?php echo $_POST["certifierNumber"];?></label>
-                            <label for="certifierName2">ลงชื่อ&nbsp;&nbsp;</label>
-                            <label for="motherName"style="color: aliceblue;"class="underlined-text"><?php echo $_POST["certifierName"];?></label>
-                        </div>
-                    </TD> 
-                </TR> 
-            </TABLE>
             <br><br>
+            <!-- <div class="button" align="center">
+                <a  class="button-style">ยืนยันการสมัคร</a>
+                 href="index.html" 
+            </div> -->
+            <?php
+                include 'condb.php';
+                $passWordNew = hash('sha512',$passWord);
+                $addressNew = $address.' หมู่'.$village.' ตำบล'.$subdistrict.' อำเภอ'.$district.' จังหวัด'.$province.' รหัสไปรษณีย์'.$postalCode;
+                $sql = "INSERT INTO member VALUES 
+                (0,'$userName', '$passWordNew', '$dateApply2', '$nameThia', '$nameEng', '$sex', '$dateofbirth2', '$age', '$nationality', '$idcard', '$registrarName', '$startdate2', '$enddate2', '$email', '$addressNew', '$tel', '$occupation', '$position', '$companyName', '$addrcompany.$postalCodeCompany', '$telcompany', '$membertype', '$targetFile')";
+                
+                $result = mysqli_query($conn, $sql);
+                if ($result) {
+                    echo "<script>alert('บันทึกข้อมูลเรียบร้อย');</script>";
+                    //echo "<script>window.location.href='index.html';</script>";
+                } else {
+                    echo "Error" . $sql . "<br>" . mysqli_error($conn);
+                    echo "<script>alert('บันทึกข้อมูลไม่สำเร็จ');</script>";
+                }
+                mysqli_close($conn);
+            ?>
             <div class="button" align="center">
-                <a href="index.html" class="button-style">ยืนยันการสมัคร</a>
+                <button onclick="window.location.href='index.php'" class="button-style">กลับสู่หน้าหลัก</button>
             </div>
     </div>   
 </body>

@@ -12,26 +12,10 @@ body{
     min-height: auto;
     margin: auto;
 } 
-.body2{
-    background-color: rgb(126, 22, 22);
-    background-image: url('/images/bg.jpg');
-    display: grid; 
-    grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); 
-    min-height: auto;
-    margin: auto;
-    margin: 0;
-    padding: 0;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-} 
 .header{
     text-align: center;
     margin: auto;
     padding: 1%;
-}
-.underlined-text {
-    text-decoration: underline;
 }
 .form{
     padding: 10px 150px;
@@ -45,35 +29,16 @@ body{
     box-sizing: border-box; /* กำหนดให้ขอบของ container นับเข้าไปในความกว้างทั้งหมด */
   }
  .container2 {
-    background-color: #950006;
-    max-width: 1500px; /* กำหนดความกว้างสูงสุดของ container */
+    background-color: #5e4545;
+    max-width: 1200px; /* กำหนดความกว้างสูงสุดของ container */
     margin-left: auto; /* จัดชิดขอบซ้าย */
     margin-right: auto; /* จัดชิดขอบขวา */
     padding: 20px; /* เพิ่มระยะขอบใน container */
     box-sizing: border-box; /* กำหนดให้ขอบของ container นับเข้าไปในความกว้างทั้งหมด */
-    border-radius: 20px;
   }
-  .container3 {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
 .button{
     text-align: center;
 }
-.form-group {
-    margin-bottom: 20px;
-}
-
-.input-style2 {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
 .input-style {
     color: rgb(0, 0, 0);
     background-color: #fefefe;
@@ -82,8 +47,6 @@ body{
     border: none;
     border-radius: 6px;
   }
-
-
 .button-style {
     background-color: blue;
     color: white;
@@ -92,29 +55,9 @@ body{
     border: none;
     border-radius: 5px;
   }
-.button-style2{
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-}
 .table1{
     width: 55rem;
 }
 img{
     width: 14rem;
-}
-.tableset {
-    table-layout: auto;
-    width: auto;
-    overflow-x: auto;
-}
-/* 
- */
- .custom-table {
-    width: 20%; /* กำหนดความกว้างตามที่คุณต้องการ */
-    margin: 0 auto; /* จัดตำแหน่งตารางตรงกลาง */
 }

@@ -117,7 +117,7 @@
                 <label for="province"style="color: aliceblue;">&nbsp;&nbsp;จังหวัด &nbsp;&nbsp;</label>
                 <input type="text" name="province" id="province"class="input-style"required>
 
-                <label for="zipcode"style="color: aliceblue;">&nbsp;&nbsp;รหัสไปรษณี &nbsp;&nbsp;</label>
+                <label for="zipcode"style="color: aliceblue;">&nbsp;&nbsp;รหัสไปรษณีย์ &nbsp;&nbsp;</label>
                 <input type="text" name="postalCode" id="postalCode"class="input-style"required oninput="validationInputNumber(event)"><br><br>
 
                 <label for="tel"style="color: aliceblue;">โทรศัพท์มือถือ &nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -138,40 +138,43 @@
                 <label for="addrcompany"style="color: aliceblue;">ที่อยู่ที่ทำงาน &nbsp;&nbsp;</label>
                 <input type="text" name="addrcompany" id="addrcompany"class="input-style"required>
 
-                <label for="zipcodecompany"style="color: aliceblue;">&nbsp;&nbsp;รหัสไปรษณี &nbsp;&nbsp;</label>
+                <label for="zipcodecompany"style="color: aliceblue;">&nbsp;&nbsp;รหัสไปรษณีย์ &nbsp;&nbsp;</label>
                 <input type="text" name="postalCodeCompany" id="postalCodeCompany"class="input-style"required oninput="validationInputNumber(event)">
 
                 <label for="telcompany"style="color: aliceblue;">&nbsp;&nbsp;โทรศัพท์ &nbsp;&nbsp;</label>
                 <input type="tel" name="telcompany" id="telcompany"class="input-style"required oninput="validationInputNumber(event)"><br><br>
             </div>
             <HR>
-            <div style="font-size: 15px; color: #fffdfd;">
-                <label for="domicile" style="font-size: 20px; color: #fffdfd;">ภูมิลำเนาบรรพบุรุษ</label><br><br>
-
-                <label for="addressDomicile">บ้านเลขที่  &nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input type="text" name="addressDomicile" id="addressDomicile"class="input-style"required oninput="validationInputNumber(event)">
-
-                <label for="MDomicile">&nbsp;&nbsp;หมู่ &nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input type="text" name="villageDomicile" id="villageDomicile"class="input-style"required oninput="validationInputNumber(event)">
-
-                <label for="TDomicile">&nbsp;&nbsp;ตำบล &nbsp;&nbsp;</label>
-                <input type="text" name="subdistrictDomicile" id="subdistrictDomicile"class="input-style"required><br><br>
-
-                <label for="ApDomicile">อำเภอ &nbsp;&nbsp;</label>
-                <input type="text" name="districtDomicile" id="districtDomicile"class="input-style"required>
-
-                <label for="provinceDomicile">&nbsp;&nbsp;จังหวัด &nbsp;&nbsp;</label>
-                <input type="text" name="provinceDomicile" id="provinceDomicile"class="input-style"required>
-
-                <label for="zipcodeDomicile">&nbsp;&nbsp;รหัสไปรษณี &nbsp;&nbsp;</label>
-                <input type="text" name="postalCodeDomicile" id="postalCodeDomicile"class="input-style"required oninput="validationInputNumber(event)"><br><br>
-
-                <label for="zipcodeDomicile">ชื่อบิดา &nbsp;&nbsp;</label>
-                <input type="text" name="fatherName" id="fatherName"class="input-style"required>
-
-                <label for="zipcodeDomicile">&nbsp;&nbsp;ชื่อมารดา &nbsp;&nbsp;</label>
-                <input type="text" name="motherName" id="motherName"class="input-style"required><br><br>
-            </div>
+                <label for="domicile" style="font-size: 20px; color: #fffdfd;">บัญชีและรหัสผ่าน</label><br>         
+                <TABLE align="center" WIDTH="950" BORDER="0" style="font-size: 15px; color: #fffdfd;">
+                
+                    <TR >
+                        <TD ROWSPAN="3" WIDTH="50">
+                            <div >
+                                เลือกรูปภาพ 1 นิ้ว
+                                <input type="file" id="imageUpload" name="imageUpload"required>
+                            </div>
+                        </TD> 
+                        <TD align="left"WIDTH="200">
+                            <div style="font-size: 15px; color: #fffdfd;">
+                                <label for="userName">ชื่อบัญชี&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <input type="text" name="userName" id="userName"class="input-style"required><br>
+                            </div>
+                        </TD>
+                        <TD align="left"WIDTH="200">
+                            <div style="font-size: 15px; color: #fffdfd;">
+                                <label for="passWord">รหัสผ่าน  &nbsp;&nbsp;&nbsp;</label>
+                                <input type="text" name="passWord" id="passWord"class="input-style"required >
+                            </div>
+                        </TD>
+                        <TD align="left"WIDTH="500">
+                            <div style="font-size: 15px; color: #fffdfd;">
+                           </div>
+                        </TD>
+                        
+                    </TR> 
+                </TABLE>
+                <br>
             <div style="font-size: 15px; color: #fffdfd;">
                 <label >ขอสมัครเป็นสมาชิกสมาคมประเภท และชำระค่าบำรุงสมาคม&nbsp;&nbsp;&nbsp;</label><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="pay" id="pay" value="600" required>&nbsp;&nbsp;&nbsp;สมาชิกสมทบ
@@ -188,39 +191,12 @@
                     และปฏิบัติตามระเบียบข้อบังคับของสมาคมฯ และกฎหมายของบ้านเมืองอย่างเคร่งครัด
                     </label></div><br>
             </div>
-            
-            <TABLE align="center" WIDTH="950" BORDER="0" style="font-size: 15px; color: #fffdfd;">
-                
-                <TR >
-                    <TD ROWSPAN="3" WIDTH="50">
-                        <div >
-                            เลือกรูปภาพ 1 นิ้ว
-                            <input type="file" id="imageUpload" name="imageUpload"required>
-                        </div>
-                    </TD> 
-                    <TD align="left">
-                        <div style="font-size: 15px; color: #fffdfd;">
-                            <label for="applyName">ผู้สมัครชื่อ  &nbsp;&nbsp;&nbsp;&nbsp;</label>
-                            <input type="text" name="applyName" id="applyName"class="input-style"required><br>
-                        </div>
-                    </TD>
-                    
-                </TR> 
-                <TR align="left" BORDER="0"> 
-                    <TD>
-                        <div style="font-size: 15px; color: #fffdfd;">
-                            <label for="certifierNumber">ผู้รับรองสมาชิกสามัญเลขที่&nbsp;</label>
-                            <input type="text" name="certifierNumber" id="certifierNumber"class="input-style"required oninput="validationInputNumber(event)">
-                            <label for="certifierName2">ลงชื่อ&nbsp;&nbsp;</label>
-                            <input type="text" name="certifierName" id="certifierName" class="input-style"required>
-                        </div>
-                    </TD> 
-                </TR> 
-            </TABLE>
+
             <br><br>
             <div class="g-recaptcha" data-sitekey="6LcfFWooAAAAAOODWWYJFmUCmRI-CmHQovFyjOKp" align="center"></div>
             <br><br>
             <div class="button" align="center">
+                <button type="button" class="button-style" onclick="window.location.href='index.php'" style="background-color: rgb(255, 30, 0);">ย้อนกลับ</button>&nbsp;&nbsp;
                 <input type="reset" value="ล้างข้อมูลที่กรอก" class="button-style" style="background-color: rgb(0, 217, 255);">&nbsp;&nbsp;
                 <input type="submit" value="สมัครสมาชิก"name="submit" class="button-style">
             </div>
@@ -246,6 +222,7 @@
             // กำหนดค่าให้กับ input
             let dateInput = document.getElementById('dateApply');
             dateInput.value = currentDate.toISOString().slice(0, 10);
+            
           </script>
     </div>  
 </body>
