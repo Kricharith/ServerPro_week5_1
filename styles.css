@@ -60,6 +60,23 @@ body{
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
+.container4 {
+    /* background-color: #950006; */
+    max-width: 2000px; /* กำหนดความกว้างสูงสุดของ container */
+    margin-left: auto; /* จัดชิดขอบซ้าย */
+    margin-right: auto; /* จัดชิดขอบขวา */
+    padding: 20px; /* เพิ่มระยะขอบใน container */
+    box-sizing: border-box; /* กำหนดให้ขอบของ container นับเข้าไปในความกว้างทั้งหมด */
+  }
+.container5 {
+    background-color: #950006;
+    max-width: 1500px; /* กำหนดความกว้างสูงสุดของ container */
+    margin-left: auto; /* จัดชิดขอบซ้าย */
+    margin-right: auto; /* จัดชิดขอบขวา */
+    padding: 10px; /* เพิ่มระยะขอบใน container */
+    box-sizing: border-box; /* กำหนดให้ขอบของ container นับเข้าไปในความกว้างทั้งหมด */
+    border-radius: 20px;
+}
 .button{
     text-align: center;
 }
@@ -117,4 +134,10 @@ img{
  .custom-table {
     width: 20%; /* กำหนดความกว้างตามที่คุณต้องการ */
     margin: 0 auto; /* จัดตำแหน่งตารางตรงกลาง */
+}
+.custom-table th, .custom-table td {
+    min-width: 100px; /* ปรับความกว้างตามที่คุณต้องการ */
+    white-space: nowrap; /* ป้องกันข้อความขยับไปรอบบรรทัด */
+    overflow: hidden; /* ป้องกันข้อความที่เกินขอบคอลัม */
+    text-overflow: ellipsis; /* แสดง ... ถ้าข้อความเกินขอบคอลัม */
 }

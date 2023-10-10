@@ -89,16 +89,13 @@
             $targetDir = "images/"; // ตำแหน่งที่จะบันทึกไฟล์
 
             $newFileName = $userName."." . pathinfo($_FILES["imageUpload"]["name"], PATHINFO_EXTENSION);
-            $targetFile = $targetDir . $newFileName; // เตรียมตำแหน่งของไฟล์ที่จะบันทึก
-            //$targetFile = $targetDir . basename($_FILES["imageUpload"]["name"]); // เตรียมตำแหน่งของไฟล์ที่จะบันทึก
-            // ตรวจสอบว่าไฟล์รูปถูกอัพโหลดหรือไม่
+            $targetFile = $targetDir . $newFileName;
             $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
             if (isset($_POST["submit"])) {
                 $check = getimagesize($_FILES["imageUpload"]["tmp_name"]);
                 if ($check !== false) {
                     // ไฟล์เป็นรูปภาพ
                     if (move_uploaded_file($_FILES["imageUpload"]["tmp_name"], $targetFile)) {
-                        // อัพโหลดไฟล์สำเร็จ
                         //echo "<br><img src='$targetFile' alt='Uploaded Image'>";
                     } else {
                         echo "มีข้อผิดพลาดในการอัพโหลดไฟล์.";
@@ -296,10 +293,10 @@
             </div> -->
             <?php
                 include 'condb.php';
-                $passWordNew = hash('sha512',$passWord);
+                // $passWordNew = hash('sha512',$passWord);
                 $addressNew = $address.' หมู่'.$village.' ตำบล'.$subdistrict.' อำเภอ'.$district.' จังหวัด'.$province.' รหัสไปรษณีย์'.$postalCode;
                 $sql = "INSERT INTO member VALUES 
-                (0,'$userName', '$passWordNew', '$dateApply2', '$nameThia', '$nameEng', '$sex', '$dateofbirth2', '$age', '$nationality', '$idcard', '$registrarName', '$startdate2', '$enddate2', '$email', '$addressNew', '$tel', '$occupation', '$position', '$companyName', '$addrcompany.$postalCodeCompany', '$telcompany', '$membertype', '$targetFile')";
+                (0,'$userName', '$passWord', '$dateApply2', '$prefixSelect.$nameThia', '$nameEng', '$sex', '$dateofbirth2', '$age', '$nationality', '$idcard', '$registrarName', '$startdate2', '$enddate2', '$email', '$addressNew', '$tel', '$occupation', '$position', '$companyName', '$addrcompany.$postalCodeCompany', '$telcompany', '$membertype', '$newFileName')";
                 
                 $result = mysqli_query($conn, $sql);
                 if ($result) {

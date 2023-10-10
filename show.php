@@ -34,11 +34,11 @@ $choice = $_POST["choice"];
             } 
             echo <<<HTML
                   <div align ="center">
-                  <p class="fs-1">ตาราง</p>
+                  <p class="fs-1">ตารางแสดงข้อมูลทุกเรคคอร์ด</p>
                   </div>
             HTML;
             echo <<<HTML
-            <table class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped custom-table">
                   <thead class="thead-dark">
                   <tr>
             HTML;
@@ -46,7 +46,7 @@ $choice = $_POST["choice"];
             $field_count =  $result->field_count;
             for($i = 0; $i < $field_count; $i++) {
                   $field = $result->fetch_field_direct($i);
-                  echo '<th>' . $field->name . '</th>';
+                  echo '<th >' . $field->name . '</th>';
             }
             echo '</tr></thead>';
 
@@ -56,7 +56,7 @@ $choice = $_POST["choice"];
                   <tr>  
                         <td>$data->id</td>
                         <td>$data->username</td>
-                        <td>$data->password</td>
+                        <td >$data->password</td>
                         <td>$data->dateapply</td>
                         <td>$data->namethai</td>
                         <td>$data->nameeng</td>
@@ -78,8 +78,6 @@ $choice = $_POST["choice"];
                         <td>$data->telcompany</td>
                         <td>$data->membertype</td>
                         <td>$data->imagefile</td>
-
-
                   </tr>
                   HTML;
             }
@@ -99,12 +97,12 @@ $choice = $_POST["choice"];
             } 
             echo <<<HTML
                   <div align ="center">
-                  <p class="fs-1">ตาราง</p>
+                  <p class="fs-1">ตารางแสดงข้อมูลสมาชิกที่มีอายุ40ปีขึ้นไป</p>
                   </div>
             HTML;
             echo <<<HTML
-            <table class="table table-bordered table-striped ">
-                  <thead class="thead-dark">
+            <table class="table table-bordered table-striped custom-table">
+                  <!-- <thead class="thead-dark"> -->
                   <tr>
             HTML;
             //แสดงแถวหัวตาราง
@@ -122,7 +120,7 @@ $choice = $_POST["choice"];
                         <td>$data->id</td>
                         <td>$data->username</td>
                         <td>$data->password</td>
-                        <td>$data->dateapply</td>
+                        <td>$data->dateapply</td> 
                         <td>$data->namethai</td>
                         <td>$data->nameeng</td>
                         <td>$data->sex</td>
@@ -161,7 +159,7 @@ $choice = $_POST["choice"];
             } 
             echo <<<HTML
                   <div align ="center">
-                  <p class="fs-1">ตาราง</p>
+                  <p class="fs-1">ตารางแสดงข้อมูลสมาชิก เพศชายและมีอายุมากกว่าหรือเท่ากับ 30 ปี</p>
                   </div>
             HTML;
             echo <<<HTML
@@ -212,7 +210,7 @@ $choice = $_POST["choice"];
             end_page2:
             mysqli_close($conn);
          }else if($choice === '4'){
-            $sql = 'SELECT * FROM member WHERE sex = "ชาย" AND age >= 30';
+            $sql = "SELECT * FROM member WHERE birthday BETWEEN '1980-01-01' AND '1990-1-1'";
             $result = $conn->query($sql);
             if (!$result) {
                   echo $mysqli->error;
@@ -223,7 +221,7 @@ $choice = $_POST["choice"];
             } 
             echo <<<HTML
                   <div align ="center">
-                  <p class="fs-1">ตาราง</p>
+                  <p class="fs-1">ตารางแสดงข้อมูลสมาชิก ที่เกิดระหว่างปี 1980 ถึง 1990</p>
                   </div>
             HTML;
             echo <<<HTML
@@ -285,7 +283,7 @@ $choice = $_POST["choice"];
             } 
             echo <<<HTML
                   <div align ="center">
-                  <p class="fs-1">ตาราง</p>
+                  <p class="fs-1">ตารางแสดงข้อมูลสมาชิกที่ไม่มีเบอร์โทรศัพท์</p>
                   </div>
             HTML;
             echo <<<HTML
@@ -347,7 +345,7 @@ $choice = $_POST["choice"];
             } 
             echo <<<HTML
                   <div align ="center">
-                  <p class="fs-1">ตาราง</p>
+                  <p class="fs-1">ตารางแสดงข้อมูลสมาชิกที่มีเบอร์โทรศัพท์</p>
                   </div>
             HTML;
             echo <<<HTML
@@ -409,7 +407,7 @@ $choice = $_POST["choice"];
             } 
             echo <<<HTML
                   <div align ="center">
-                  <p class="fs-1">ตาราง</p>
+                  <p class="fs-1">ตารางแสดงข้อมูลสมาชิกที่ ที่อยู่จังหวัดชลบุรี</p>
                   </div>
             HTML;
             echo <<<HTML
@@ -471,7 +469,7 @@ $choice = $_POST["choice"];
             } 
             echo <<<HTML
                   <div align ="center">
-                  <p class="fs-1">ตาราง</p>
+                  <p class="fs-1">ตารางแสดงข้อมูลสมาชิกที่ ที่อยู่ไม่ได้อยู่จังหวัดชลบุรี</p>
                   </div>
             HTML;
             echo <<<HTML
@@ -533,7 +531,7 @@ $choice = $_POST["choice"];
             } 
             echo <<<HTML
                   <div align ="center">
-                  <p class="fs-1">ตาราง</p>
+                  <p class="fs-1">ตารางแสดงข้อมูลสมาชิกที่มีอาชีพช่างไฟฟ้าและนักธุรกิจ</p>
                   </div>
             HTML;
             echo <<<HTML
@@ -595,7 +593,7 @@ $choice = $_POST["choice"];
             } 
             echo <<<HTML
                   <div align ="center">
-                  <p class="fs-1">ตาราง</p>
+                  <p class="fs-1">ตารางแสดงข้อมูลของบริษัททั้งหมดที่ไม่ซ้ำกัน</p>
                   </div>
             HTML;
             echo <<<HTML
