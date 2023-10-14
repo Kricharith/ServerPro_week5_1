@@ -326,6 +326,7 @@ session_start();
                     $_SESSION["telcompany"] = $telcompany;
                     $_SESSION["membertype"] = $membertype;
                     $_SESSION["imagefile"] = $newFileName;
+                    $_SESSION["priority"] = "accountNew";
                     echo "<script>alert('บันทึกข้อมูลเรียบร้อย');</script>";
                     //echo "<script>window.location.href='index.html';</script>";
                 } else {

@@ -101,6 +101,20 @@ session_start();
                             <br>
                             <label for="dateofbirth"style="color: aliceblue;">ที่อยู่&nbsp;&nbsp;</label>
                             <label for="dateofbirth"style="color: aliceblue;"><?php echo $_SESSION["address"];?></label>
+                            <br>
+                            <br>
+                            <div align="center">
+                                <label style="color: aliceblue;" >
+                                    <?php
+                                        if($_SESSION["priority"] == "accountNew"){
+                                            echo ">> ยินดีต้อนรับสมาชิกใหม่ <<";
+                                        }else{
+                                            echo "";
+                                        }
+                                    ?>
+                                </label>
+                            </div>
+                            
                         </div>
                         
 
