@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en" class>
 <head>
@@ -292,14 +294,38 @@
                  href="index.html" 
             </div> -->
             <?php
+                
                 include 'condb.php';
                 // $passWordNew = hash('sha512',$passWord);
+                $passWordMd5 = md5($passWord);
                 $addressNew = $address.' หมู่'.$village.' ตำบล'.$subdistrict.' อำเภอ'.$district.' จังหวัด'.$province.' รหัสไปรษณีย์'.$postalCode;
                 $sql = "INSERT INTO member VALUES 
-                (0,'$userName', '$passWord', '$dateApply2', '$prefixSelect.$nameThia', '$nameEng', '$sex', '$dateofbirth2', '$age', '$nationality', '$idcard', '$registrarName', '$startdate2', '$enddate2', '$email', '$addressNew', '$tel', '$occupation', '$position', '$companyName', '$addrcompany.$postalCodeCompany', '$telcompany', '$membertype', '$newFileName')";
+                (0,'$userName', '$passWordMd5', '$dateApply2', '$prefixSelect.$nameThia', '$nameEng', '$sex', '$dateofbirth2', '$age', '$nationality', '$idcard', '$registrarName', '$startdate2', '$enddate2', '$email', '$addressNew', '$tel', '$occupation', '$position', '$companyName', '$addrcompany.$postalCodeCompany', '$telcompany', '$membertype', '$newFileName')";
                 
                 $result = mysqli_query($conn, $sql);
                 if ($result) {
+                    $_SESSION["username"] = $userName;
+                    $_SESSION["password"] = $passWordMd5;
+                    $_SESSION["namethai"] = $prefixSelect.$nameThia;
+                    $_SESSION["nameeng"] = $nameEng;
+                    $_SESSION["sex"] = $sex;
+                    $_SESSION["birthday"] = $dateofbirth2;
+                    $_SESSION["age"] = $age;
+                    $_SESSION["nationality"] = $nationality;
+                    $_SESSION["idcard"] = $idcard;
+                    $_SESSION["registrarame"] = $registrarName;
+                    $_SESSION["startdate"] = $startdate2;
+                    $_SESSION["enddate"] = $enddate2;
+                    $_SESSION["email"] = $email;
+                    $_SESSION["address"] = $addressNew;
+                    $_SESSION["tel"] = $tel;
+                    $_SESSION["occupation"] = $occupation;
+                    $_SESSION["position"] = $position;
+                    $_SESSION["companyname"] = $companyName;
+                    $_SESSION["addrcompany"] = $addrcompany.$postalCodeCompany;
+                    $_SESSION["telcompany"] = $telcompany;
+                    $_SESSION["membertype"] = $membertype;
+                    $_SESSION["imagefile"] = $newFileName;
                     echo "<script>alert('บันทึกข้อมูลเรียบร้อย');</script>";
                     //echo "<script>window.location.href='index.html';</script>";
                 } else {

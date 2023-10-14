@@ -18,11 +18,6 @@ $choice = $_POST["choice"];
       <div class="" style="color: aliceblue;" >
       <?php
          if($choice === '1'){
-            // echo $choice;
-            // echo $_SESSION["namethai"];
-            // echo $_SESSION["nameeng"];
-            // echo $_SESSION["age"];
-
             $sql = 'SELECT * FROM member ';
             $result = $conn->query($sql);
             if (!$result) {
@@ -52,11 +47,12 @@ $choice = $_POST["choice"];
 
             //อ่านข้อมูลที่ละแถวจาก result set ในแบบออบเจ็กต์
             while ($data = $result->fetch_object()) {
+                  $passwordMd5 = md5($data->password);
                   echo <<<HTML
                   <tr>  
                         <td>$data->id</td>
                         <td>$data->username</td>
-                        <td >$data->password</td>
+                        <td >$passwordMd5</td>
                         <td>$data->dateapply</td>
                         <td>$data->namethai</td>
                         <td>$data->nameeng</td>
@@ -163,7 +159,7 @@ $choice = $_POST["choice"];
                   </div>
             HTML;
             echo <<<HTML
-            <table class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped custom-table">
                   <thead class="thead-dark">
                   <tr>
             HTML;
@@ -225,7 +221,7 @@ $choice = $_POST["choice"];
                   </div>
             HTML;
             echo <<<HTML
-            <table class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped custom-table">
                   <thead class="thead-dark">
                   <tr>
             HTML;
@@ -287,7 +283,7 @@ $choice = $_POST["choice"];
                   </div>
             HTML;
             echo <<<HTML
-            <table class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped custom-table">
                   <thead class="thead-dark">
                   <tr>
             HTML;
@@ -349,7 +345,7 @@ $choice = $_POST["choice"];
                   </div>
             HTML;
             echo <<<HTML
-            <table class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped custom-table">
                   <thead class="thead-dark">
                   <tr>
             HTML;
@@ -411,7 +407,7 @@ $choice = $_POST["choice"];
                   </div>
             HTML;
             echo <<<HTML
-            <table class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped custom-table">
                   <thead class="thead-dark">
                   <tr>
             HTML;
@@ -473,7 +469,7 @@ $choice = $_POST["choice"];
                   </div>
             HTML;
             echo <<<HTML
-            <table class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped custom-table">
                   <thead class="thead-dark">
                   <tr>
             HTML;
@@ -535,7 +531,7 @@ $choice = $_POST["choice"];
                   </div>
             HTML;
             echo <<<HTML
-            <table class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped custom-table">
                   <thead class="thead-dark">
                   <tr>
             HTML;
